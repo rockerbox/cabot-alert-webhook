@@ -2,12 +2,12 @@
 
 from setuptools import setup, find_packages
 
-setup(name='cabot-alert-skeleton',
-      version='1.0.0',
-      description='A skeleton plugin for Cabot by Arachnys',
-      author='Arachnys',
-      author_email='info@arachnys.com',
-      url='http://cabotapp.com',
+setup(name='cabot-alert-webhook',
+      version='0.0.1',
+      description='A Webhook plugin for Cabot',
+      author='Rockerbox',
+      author_email='engineering@rockerbox.com',
+      url='https://github.com/rockerbox/cabot-alert-webhook',
       packages=find_packages(),
-      download_url = 'https://github.com/cabotapp/cabot-alert-skeleton/tarball/1.0.0',
+      download_url = 'https://github.com/rockerbox/cabot-alert-webhook/tarball/0.0.1',
      )

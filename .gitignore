@@ -1,5 +1,5 @@
 *.pyc
 dist/
-cabot_alert_skeleton.egg-info/
+cabot_alert_webhook.egg-info/
 build/*
 *.sw?
