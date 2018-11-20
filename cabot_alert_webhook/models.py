@@ -9,7 +9,7 @@ import json
 from logging import getLogger
 logger = getLogger(__name__)
 
-class WebhookAlertPlugin(AlertPlugin):
+class WebhookAlert(AlertPlugin):
     name = "Webhook"
     slug = "cabot_alert_webhook"
     author = "Rockerbox"
