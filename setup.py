@@ -9,5 +9,5 @@ setup(name='cabot-alert-webhook',
       author_email='engineering@rockerbox.com',
       url='https://github.com/rockerbox/cabot-alert-webhook',
       packages=find_packages(),
-      download_url = 'https://github.com/rockerbox/cabot-alert-webhook/tarball/0.0.1',
+      download_url = 'https://github.com/rockerbox/cabot-alert-webhook/tarball/master',
      )
