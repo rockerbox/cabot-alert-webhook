@@ -17,7 +17,11 @@ class WebhookAlert(AlertPlugin):
     font_icon = "fa fa-rocket"
 
     def send_alert(self, service, users, duty_officers):
-        message = service.get_status_message()
+        payload = {
+            'service': service.name,
+            'status': service.overall_status,
+            'old_status': service.old_overall_status,
+        }
 
         webhook_urls = [u.webhook_url for u in WebhookAlertUserData.objects.filter(user__user__in=users)]
 
@@ -25,7 +29,7 @@ class WebhookAlert(AlertPlugin):
             logger.info(message)
             requests.post(
                 url,
-                data=json.dumps({'message': message})
+                data=json.dumps(payload)
             )
         return True
 
