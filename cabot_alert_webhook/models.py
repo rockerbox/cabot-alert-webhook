@@ -1,5 +1,6 @@
-from cabot.cabotapp.alert import AlertPlugin, AlertPluginUserData
-from django import forms
+from cabot.cabotapp.alert import AlertPlugin
+from cabot.cabotapp.alert import AlertPluginUserData
+from django.db import models
 from os import environ as env
 import requests
 import json
@@ -20,12 +21,13 @@ class WebhookAlertPlugin(AlertPlugin):
 
     def send_alert(self, service, users, duty_officers):
         message = service.get_status_message()
-        for u in users:
-            post_to_url = u.cabot_alert_webhook_settings.webhook_url
+
+        webhook_urls = [u.webhook_url for u in WebhookAlertUserData.objects.filter(user__user__in=users)]
+
+        for url in webhook_urls:
             logger.info(message)
-            if post_to_url:
-                requests.post(
-                    u.cabot_alert_webhook_settings.webhook_url,
-                    data=json.dumps({'message': message})
-                )
+            requests.post(
+                url,
+                data=json.dumps({'message': message})
+            )
         return True
