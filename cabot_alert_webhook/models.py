@@ -1,4 +1,4 @@
-from cabot.plugins.models import AlertPlugin
+from cabot.cabotapp.alert import AlertPlugin, AlertPluginUserData
 from django import forms
 from os import environ as env
 import requests
@@ -7,8 +7,9 @@ import json
 from logging import getLogger
 logger = getLogger(__name__)
 
-class WebhookAlertUserSettingsForm(forms.Form):
-    webhook_url = forms.URLField()
+class WebhookAlertUserData(AlertPluginUserData):
+    name = "Webhook Plugin"
+    webhook_url = models.URLField()
 
 class WebhookAlertPlugin(AlertPlugin):
     name = "Webhook"
@@ -16,8 +17,6 @@ class WebhookAlertPlugin(AlertPlugin):
     author = "Rockerbox"
     version = "0.0.1"
     font_icon = "fa fa-rocket"
-
-    user_config_form = WebhookAlertUserSettingsForm
 
     def send_alert(self, service, users, duty_officers):
         message = service.get_status_message()
