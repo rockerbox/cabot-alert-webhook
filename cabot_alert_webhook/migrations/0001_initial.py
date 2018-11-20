@@ -28,7 +28,7 @@ class Migration(migrations.Migration):
             name='WebhookAlertUserData',
             fields=[
                 ('alertpluginuserdata_ptr', models.OneToOneField(auto_created=True, on_delete=django.db.models.deletion.CASCADE, parent_link=True, primary_key=True, serialize=False, to='cabotapp.AlertPluginUserData')),
-                ('webhook_url', models.CharField(blank=True, max_length=50)),
+                ('webhook_url', models.URLField(blank=True, max_length=200)),
             ],
             options={
                 'abstract': False,

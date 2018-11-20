@@ -31,4 +31,4 @@ class WebhookAlert(AlertPlugin):
 
 class WebhookAlertUserData(AlertPluginUserData):
     name = "Webhook Plugin"
-    webhook_url = models.CharField(max_length=100, blank=True)
+    webhook_url = models.URLField(max_length=200, blank=True)
