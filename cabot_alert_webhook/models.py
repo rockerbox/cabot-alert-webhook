@@ -1,16 +1,13 @@
+from django.db import models
+
 from cabot.cabotapp.alert import AlertPlugin
 from cabot.cabotapp.alert import AlertPluginUserData
-from django.db import models
-from os import environ as env
+
 import requests
 import json
 
 from logging import getLogger
 logger = getLogger(__name__)
-
-class WebhookAlertUserData(AlertPluginUserData):
-    name = "Webhook Plugin"
-    webhook_url = models.URLField()
 
 class WebhookAlertPlugin(AlertPlugin):
     name = "Webhook"
@@ -31,3 +28,7 @@ class WebhookAlertPlugin(AlertPlugin):
                 data=json.dumps({'message': message})
             )
         return True
+
+class WebhookAlertUserData(AlertPluginUserData):
+    name = "Webhook Plugin"
+    webhook_url = models.CharField(max_length=100, blank=True)
