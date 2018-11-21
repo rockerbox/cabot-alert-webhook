@@ -6,8 +6,6 @@ from cabot.cabotapp.alert import AlertPluginUserData
 import requests
 import json
 
-from logging import getLogger
-logger = getLogger(__name__)
 
 class WebhookAlert(AlertPlugin):
     name = "Webhook"
@@ -29,6 +27,7 @@ class WebhookAlert(AlertPlugin):
                 data=json.dumps(payload)
             )
         return True
+
 
 class WebhookAlertUserData(AlertPluginUserData):
     name = "Webhook Plugin"

@@ -7,9 +7,9 @@ A plugin for `Cabot`_ service monitoring that will post alerts to a URL.
 The plugin will POST a payload like the following to a user-defined endpoint::
 
     {
-      'service': MY_SERVICE_NAME,
-      'status': FAILING,
-      'old_status': PASSING,
+      'service': 'my_service_name',
+      'status': 'ERROR',
+      'old_status': 'PASSING',
     }
 
 
@@ -18,7 +18,7 @@ Installation
 
 Install from pip::
 
-    $ pip install cabot_alert_webhook
+    $ pip install cabot-alert-webhook
     $ foreman stop
 
 Edit `conf/*.env`::
