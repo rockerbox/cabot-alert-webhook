@@ -10,4 +10,6 @@ setup(name='cabot-alert-webhook',
       url='https://github.com/rockerbox/cabot-alert-webhook',
       packages=find_packages(),
       download_url = 'https://github.com/rockerbox/cabot-alert-webhook/tarball/master',
+      bugtrack_url = "https://github.com/rockerbox/cabot-alert-webhook/issues",
+      keywords = ['cabot', 'webhook', 'status check'],
      )

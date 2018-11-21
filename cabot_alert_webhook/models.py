@@ -13,8 +13,6 @@ class WebhookAlert(AlertPlugin):
     name = "Webhook"
     slug = "cabot_alert_webhook"
     author = "Rockerbox"
-    version = "0.0.1"
-    font_icon = "fa fa-rocket"
 
     def send_alert(self, service, users, duty_officers):
         payload = {
